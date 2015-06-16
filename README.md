@@ -1,39 +1,27 @@
-Extremely thin python wrapper for Microsoft Azure Bing Search API. Please note that this module does not use the Bing Search API 2.0 AppIDs which will be deprecated on August 1, 2012. This module requires that you sign up to the Windows Azure Marketplace and apply for an application key.
+Quick module to read in HTML and tries to identify contacts from the HTML, whether just email, or first,last based matches etc.
 
-The modules uses OAuth, so you'll need to get your key here (free for up to 5K/Mon):
-* [All Purpose](https://datamarket.azure.com/dataset/5BA839F1-12CE-4CCE-BF57-A49D98D29A44)
-* [Web Search Only](https://datamarket.azure.com/dataset/8818F55E-2FE5-4CE3-A617-0B8BA8419F65)
 
 Usage
 =====
 
-Just remember to set the `API_KEY` as your own.
 
-    >>> from pybingsearch import PyBingSearch
-    >>> bing = PyBingSearch('Your-Api-Key-Here')
-    >>> result_list, next_uri = bing.search("Python Software Foundation", limit=50, format='json')
+    >>> from html_contact import HtmlContact
+    >>> hc = HtmlContact(raw_html)
+    >>> contacts = hc.search()
 
-Result list is a list of search results.
+Result list is a list of contacts
 
-    >>> result_list[0].description
-    u'Python Software Foundation Home Page. The mission of the Python Software Foundation is to promote, protect, and advance the Python programming language, and to ...'
-    
     >>> for result in result_list:
     ...     print result.url
     ...
     u'http://www.python.org/psf/
     ...
     
-What you get is a list of Result() instances, each comes with the following values:
+What you get is a list of Contacts() instances, each comes with the following values:
     
 ```py
-self.title:         title of the result
-self.url:           the url of the result
-self.description:   description for the result
-self.id:            bing id for the page
-
-#Meta info:
-self.meta.uri:      the search uri for bing
-self.meta.type:     for the most part WebResult
+self.first_name:         fitst name of the contact
+self.last_name:            last_name of the contact
+self.email:          email of the contact
 ```
     

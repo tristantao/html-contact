@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os
 import platform
 
-DESCRIPTION = "A simple python wrapper for the Azure Bing Search API."
+DESCRIPTION = "A simple python module to extract contact info from HTML pages"
 
 LONG_DESCRIPTION = None
 try:
@@ -20,16 +20,16 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='pybingsearch',
+    name='htmlcontact',
     version='0.1',
     author=u'tristan tao',
     author_email='tristan@teamleada.com',
     py_modules=['pybingsearch'],
-    url='http://github.com/tristantao/py-bing-search',
+    url='http://github.com/tristantao/html-contact',
     license='MIT',
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     platforms=['any'],
     classifiers=CLASSIFIERS,
-    install_requires=['requests'],
+    install_requires=['bs4', 'nltk'],
 )
