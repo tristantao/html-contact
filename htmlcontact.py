@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import nltk
 import re
 
-class HtmlContactExceptino(Exception):
+class HtmlContactException(Exception):
     pass
 
 class HtmlContact(object):
