@@ -31,5 +31,5 @@ setup(
     long_description=LONG_DESCRIPTION,
     platforms=['any'],
     classifiers=CLASSIFIERS,
-    install_requires=['beautifulsoup4', 'nltk'],
+    install_requires=['beautifulsoup4', 'nltk', 'py_bing_search'],
 )
